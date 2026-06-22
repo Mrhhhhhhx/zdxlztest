@@ -1,20 +1,30 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+name: "💡 功能建议"
+about: "为 cqlib 提出新功能或改进建议"
+title: "[FEAT] "
+labels: ["enhancement"]
+assignees: []
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## 功能背景
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+<!-- 描述您当前面临的问题或使用场景 -->
+<!-- 例如："我在实现 XX 算法时，发现现有接口无法直接表达 YY，需要 workaround" -->
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## 建议方案
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+<!-- 描述您期望的解决方案 -->
+<!-- 如有伪代码或 API 设计思路，欢迎附上 -->
+
+```python
+# 可选：您期望的 API 调用方式示例
+```
+
+## 替代方案
+
+<!-- 您是否考虑过其他实现方式？当前有没有变通的做法？ -->
+
+## 参考资料
+
+<!-- 相关论文、其他框架的实现、示例代码等 -->
