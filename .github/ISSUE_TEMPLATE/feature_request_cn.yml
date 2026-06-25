@@ -1,0 +1,83 @@
+name: "\U0001F680 功能建议"
+description: "为 cqlib 提出新功能或改进建议"
+title: "[FEATURE] "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你提出功能建议！提交前请确认：
+        - 已搜索[现有 Issue](https://github.com/cq-lib/cqlib/issues)，确认未被提出过
+        - 涉及重大 API 变更的建议，请先提 Issue 讨论方案（参考 [CONTRIBUTING.CN.md](CONTRIBUTING.CN.md)）
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "问题描述"
+      description: "这个功能解决什么问题？描述你的使用场景。"
+      placeholder: "例如：我想用 VQE 求解自定义哈密顿量，但当前 API 无法直接传入..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: "涉及的功能模块（可多选）"
+      multiple: true
+      options:
+        - "量子线路构建（线路构造 / 参数化）"
+        - "中间表示（IR / 优化）"
+        - "编译优化（门分解 / 路由 / 调度）"
+        - "设备模型（校准数据 / 拓扑 / 噪声）"
+        - "量子态模拟（态矢量 / 噪声模型）"
+        - "误差缓解（ZNE / Virtual Distillation）"
+        - "可视化（线路图 / 结果图）"
+        - "Python 绑定"
+        - "C 绑定"
+        - "文档 / 示例"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: "方案建议"
+      description: "描述你期望的功能。欢迎附上代码片段或伪代码。"
+      placeholder: |
+        ```python
+        # 期望的 API 示例
+        from cqlib import Circuit, VQE
+
+        qc = Circuit(4)
+        ...
+        result = VQE(qc, hamiltonian).run()
+        ```
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "替代方案"
+      description: "你尝试过哪些替代方案？是否有其他库已经实现了类似功能？"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: "范围确认"
+      options:
+        - label: "该功能属于 cqlib 的项目范围（量子计算 SDK：线路、IR、编译、模拟、误差缓解）"
+          required: false
+        - label: "我愿意为这个功能提交 PR"
+          required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "补充信息"
+      placeholder: "参考文献、论文、其他框架的类似功能（Qiskit、Cirq、PennyLane 等）"
+    validations:
+      required: false

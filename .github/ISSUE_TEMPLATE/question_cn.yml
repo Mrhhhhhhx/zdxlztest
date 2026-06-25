@@ -1,0 +1,60 @@
+name: "\u2753 使用问题 / 求助"
+description: "提出关于 cqlib 的使用问题"
+title: "[QUESTION] "
+labels: ["question", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        欢迎提问！本模板用于使用问题、故障排查和一般咨询。
+
+        提问前请先：
+        - 查阅 [README.CN.md](README.CN.md) 和[技术文档](https://qc.zdxlz.com/)
+        - 搜索[已有问题](https://github.com/cq-lib/cqlib/issues?q=label%3Aquestion)
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: "你的问题属于哪类？"
+      options:
+        - "安装 / 构建"
+        - "API 使用"
+        - "量子计算理论"
+        - "性能 / 优化"
+        - "文档问题"
+        - "其他"
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: "你的问题"
+      description: "描述你在做什么、遇到了什么困难。"
+      placeholder: |
+        我正在尝试...
+        我已经阅读 / 尝试了...
+        我期望...，但实际上...
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: "相关代码（如有）"
+      description: "贴出你正在使用的代码或线路。"
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "运行环境"
+      description: "如有需要：cqlib 版本、操作系统、Python / Rust 版本"
+      placeholder: |
+        - cqlib 版本：0.1.0
+        - Python：3.12.0
+        - 操作系统：Ubuntu 22.04
+    validations:
+      required: false

@@ -1,0 +1,121 @@
+name: "\U0001F41B Bug 报告"
+description: "报告 cqlib 的功能异常或错误"
+title: "[BUG] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你报告 Bug！请尽可能提供详细信息以便我们复现和修复。
+
+        提交前请确认：
+        - 已搜索[现有 Issue](https://github.com/cq-lib/cqlib/issues)，避免重复提交
+        - 安全漏洞请发送邮件至 <tianyan@chinatelecom.cn>（参考 [SECURITY.CN.md](SECURITY.CN.md)）
+
+  - type: input
+    id: version
+    attributes:
+      label: "cqlib 版本"
+      description: "运行 `pip show cqlib` 或检查 `cargo.toml` 获取版本号"
+      placeholder: "例如 0.1.0, commit a1b2c3d"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: "涉及哪个组件？"
+      options:
+        - "cqlib-core（Rust 核心库）"
+        - "binding-python（Python 绑定）"
+        - "binding-c（C 绑定）"
+        - "cqlib（Rust 对外 crate）"
+        - "其他 / 不确定"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "运行环境"
+      description: "操作系统、架构、Rust 版本、Python 版本"
+      placeholder: |
+        - 操作系统：Ubuntu 22.04 / macOS 14 / Windows 11
+        - CPU 架构：x86_64 / ARM64
+        - Rust 版本：1.85.0
+        - Python 版本：3.12.0
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "复现步骤"
+      description: "提供最小复现代码"
+      placeholder: |
+        **Python：**
+        ```python
+        from cqlib import Circuit
+        qc = Circuit(2)
+        qc.h(0)
+        qc.cx(0, 1)
+        # 此处出现 Bug
+        ```
+
+        **Rust：**
+        ```rust
+        use cqlib_core::circuit::{Circuit, Qubit};
+        let mut qc = Circuit::new(2);
+        // 此处出现 Bug
+        ```
+
+        **C：**
+        ```c
+        #include <cqlib/circuit.h>
+        cqlib_circuit_t *qc = cqlib_circuit_new(2);
+        // 此处出现 Bug
+        ```
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "期望行为"
+      placeholder: "你期望发生什么？"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "实际行为"
+      placeholder: "实际发生了什么？请附上完整的错误信息、日志或堆栈跟踪"
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: quantum_context
+    attributes:
+      label: "量子计算相关上下文（如适用）"
+      description: "如果问题涉及模拟、噪声或数值计算，请补充以下信息"
+      placeholder: |
+        - 输入线路 / 量子门
+        - 使用的参数（theta、随机种子等）
+        - 模拟器 / 后端配置
+        - 噪声模型参数
+        - 预期与实际误差范围 / 精度
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "补充信息"
+      placeholder: "截图、相关 Issue、尝试过的解决方案等"
+    validations:
+      required: false
