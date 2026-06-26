@@ -1,0 +1,60 @@
+name: "\u2753 \u4F7F\u7528\u54A8\u8BE2 / Question"
+description: "\u63D0\u51FA\u5173\u4E8E cqlib \u7684\u4F7F\u7528\u95EE\u9898"
+title: "[QUESTION] "
+labels: ["question", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **欢迎提问！** 本模板用于使用问题、故障排查和一般咨询。
+
+        提问前请先：
+        - 查阅 [README.CN.md](README.CN.md) 和[技术文档](https://qc.zdxlz.com/)
+        - 搜索[已有问题](https://github.com/cq-lib/cqlib/issues?q=label%3Aquestion)
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: "\u4F60\u7684\u95EE\u9898\u5C5E\u4E8E\u54EA\u7C7B\uFF1F"
+      options:
+        - "\u5B89\u88C5 / \u6784\u5EFA"
+        - "API \u4F7F\u7528"
+        - "\u91CF\u5B50\u8BA1\u7B97\u7406\u8BBA"
+        - "\u6027\u80FD / \u4F18\u5316"
+        - "\u6587\u6863\u95EE\u9898"
+        - "\u5176\u4ED6"
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: "\u4F60\u7684\u95EE\u9898"
+      description: "\u63CF\u8FF0\u4F60\u5728\u505A\u4EC0\u4E48\u3001\u9047\u5230\u4E86\u4EC0\u4E48\u56F0\u96BE\u3002"
+      placeholder: |
+        \u6211\u6B63\u5728\u5C1D\u8BD5...
+        \u6211\u5DF2\u7ECF\u9605\u8BFB / \u5C1D\u8BD5\u4E86...
+        \u6211\u671F\u671B...\uFF0C\u4F46\u5B9E\u9645\u4E0A...
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: "\u76F8\u5173\u4EE3\u7801\uFF08\u5982\u6709\uFF09"
+      description: "\u8D34\u51FA\u4F60\u6B63\u5728\u4F7F\u7528\u7684\u4EE3\u7801\u6216\u7EBF\u8DEF\u3002"
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "\u8FD0\u884C\u73AF\u5883"
+      description: "\u5982\u6709\u9700\u8981\uFF1Acqlib \u7248\u672C\u3001\u64CD\u4F5C\u7CFB\u7EDF\u3001Python / Rust \u7248\u672C"
+      placeholder: |
+        - cqlib \u7248\u672C\uFF1A0.1.0
+        - Python\uFF1A3.12.0
+        - \u64CD\u4F5C\u7CFB\u7EDF\uFF1AUbuntu 22.04
+    validations:
+      required: false
